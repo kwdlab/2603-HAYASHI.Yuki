@@ -1,0 +1,43 @@
+services:
+  vpn-server:
+    image: strongx509/strongswan:latest
+    container_name: vpn-server
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+      - SYS_MODULE
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./server:/etc/swanctl
+      - ./strongswan.conf:/etc/strongswan.conf
+    networks:
+      vpn-net:
+        ipv6_address: fd00::2
+
+  vpn-client:
+    image: strongx509/strongswan:latest
+    container_name: vpn-client
+    depends_on:
+      - vpn-server
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+      - SYS_MODULE
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./client:/etc/swanctl
+      - ./strongswan.conf:/etc/strongswan.conf
+    networks:
+      vpn-net:
+        ipv6_address: fd00::3
+
+
+networks:
+  vpn-net:
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: fd00::/64
