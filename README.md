@@ -26,4 +26,4 @@ Dockerコンテナ環境におけるIPsec（strongSwan/XFRM）の適用が、通
 - 林 佑樹
 
 ## License
-MIT License
+MIT
