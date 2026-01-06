@@ -25,5 +25,9 @@ Dockerコンテナ環境におけるIPsec（strongSwan/XFRM）の適用が、通
 ## Author
 - 林 佑樹
 
+## References
+- strongSwan: https://www.strongswan.org/
+- Linux XFRM/IPsec（ドキュメント）: https://origin.kernel.org/doc/html/latest/networking/xfrm/xfrm_device.html
+
 ## License
 MIT
