@@ -21,3 +21,9 @@ Dockerコンテナ環境におけるIPsec（strongSwan/XFRM）の適用が、通
 - **Container Runtime:** Docker Engine [29.1.3]
 - **VPN Software:** strongSwan [6.0.3]
 - **Benchmark Tool:** iperf3
+
+## Author
+- 林 佑樹
+
+## License
+MIT License
