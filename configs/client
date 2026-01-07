@@ -19,13 +19,11 @@ connections {
       host-to-host {
         local_ts = <CLIENT_SUBNET>
         remote_ts = <SERVER_SUBNET>
-        
         mode = transport
         esp_proposals = aes128gcm16-x25519
         replay_window = 32
       }
     }
-
     proposals = aes128gcm16-prfsha256-x25519
   }
 }
