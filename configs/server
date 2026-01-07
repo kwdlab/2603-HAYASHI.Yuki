@@ -6,7 +6,7 @@ connections {
 
     local {
       auth = pubkey
-      certs = []
+      certs = <SERVER_CERT_FILENAME>
       id = "C=JP, O=Cyber, CN=<SERVER_COMMON_NAME>"
     }
     remote {
