@@ -1,0 +1,31 @@
+connections {
+  host-to-host {
+    version = 2
+
+    local_addrs = <CLIENT_IP>
+    remote_addrs = <SERVER_IP>
+
+    local {
+      auth = pubkey
+      certs = <CLIENT_CERT_FILENAME>
+      id = "C=JP, O=Cyber, CN=<CLIENT_COMMON_NAME>"
+    }
+    remote {
+      auth = pubkey
+      id = "C=JP, O=Cyber, CN=<SERVER_COMMON_NAME>"
+    }
+
+    children {
+      host-to-host {
+        local_ts = <CLIENT_SUBNET>
+        remote_ts = <SERVER_SUBNET>
+        
+        mode = transport
+        esp_proposals = aes128gcm16-x25519
+        replay_window = 32
+      }
+    }
+
+    proposals = aes128gcm16-prfsha256-x25519
+  }
+}
