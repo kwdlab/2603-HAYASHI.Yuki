@@ -6,7 +6,7 @@ Dockerなどのコンテナ基盤はクラウドで広く使われています�
 本リポジトリは、Docker環境と実機間通信を比較しつつ、MTUとreplay_windowの影響を実測して、性能低下の要因整理と改善の方向性をまとめたものです。 
 
 ## Description
-IPsec構築にはstrongSwanを用い、鍵交換・SA 管理は strongSwan、ESPのパケット処理はOSカーネルのIPsecスタックで行われる構成で評価しました。評価はDocker（同一ホスト上コンテナ間でveth/bridgeを経由と実機間（10Gbps直結)を中心に実施しています。 ￼
+IPsec構築にはstrongSwanを用い、鍵交換・SA 管理は strongSwan、ESPのパケット処理はOSカーネルのIPsecスタックで行われます。評価はDocker（同一ホスト上コンテナ間でveth/bridgeを経由と実機間（10Gbps直結)を中心に実施しています。 ￼
 
 測定はiperf3でスループットと TCP再送回数を取得し、受信側ではss -tiから rcv_ooopackなどの統計も観測しました。 ￼
 結果として、Docker 環境では IPsec なしで約 28Gbps 出る一方、IPsec 適用時は ESP=nullでも1Gbps未満まで低下し、数千回規模のTCP再送とrcv_ooopackが同時に観測されました。 ￼
